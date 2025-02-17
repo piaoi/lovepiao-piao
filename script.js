@@ -9,10 +9,10 @@ let clickCount = 0;  // 记录点击 No 的次数
 
 // No 按钮的文字变化
 const noTexts = [
-    "？你是认真的吗…", 
+    "你真的不愿意吗？…", 
     "要不再想想嘛？", 
     "不许选这个！ ", 
-    "我会很伤心…", 
+    "我会很伤心的", 
     "不可以 :("
 ];
 
@@ -21,15 +21,17 @@ noButton.addEventListener("click", function() {
     clickCount++;
 
     // 让 Yes 变大，每次放大 2 倍
-    let yesSize = 1 + (clickCount * 1.2);
+    let yesSize = 1 + (clickCount * 1);
     yesButton.style.transform = `scale(${yesSize})`;
 
-    // 挤压 No 按钮，每次右移 100px
-    let noOffset = clickCount * 50;
+    // 挤压 No 按钮，每次右移 35px
+    let noOffset = clickCount * 35;
     noButton.style.transform = `translateX(${noOffset}px)`;
 
     // **新增：让图片和文字往上移动**
     let moveUp = clickCount * 25; // 每次上移 20px
+    // let noSize = 1 - (clickCount * 0.05);
+    // noButton.style.transform = `scale(${noSize})`;
     mainImage.style.transform = `translateY(-${moveUp}px)`;
     questionText1.style.transform = `translateY(-${moveUp}px)`;
     questionText2.style.transform = `translateY(-${moveUp}px)`;
@@ -68,3 +70,4 @@ yesButton.addEventListener("click", function() {
 
 
 // 优化：8 次点击后，No 按钮隐藏，Yes 按钮变大，图片和文字上移，No 按钮变小，文字变化，图片变化。
+
